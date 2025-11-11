@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, body{
+    font-family: 'Roboto', 'Segoe UI Light', 'Segoe UI', 'Calibri', Verdana, 'Geneva', 'DejaVu Sans', sans-serif;
+    font-weight: 300;
+}
+
+body{
+    background-color: #222222;
+    color: #dddddd;
+
+    font-weight: 400;
+
+    font-size: 16px;
+    text-decoration: none;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* ========== Header ========== */
+
+header{
+    background-color: #333333;
+    color: white;
+
+    top: 0;
+    height: 48px;
+    width: 100%;
+    /*transition: padding-top 0.5s, padding-bottom 0.5s;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 275px;
+}
+
+.headerTitle{ font-size: 14pt; }
+.headerCaption{ font-size: 12px; }
+
+
+/* ========== Sidebar ========== */
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+
+    margin: 0;
+    padding: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    left: 0;
+    top: 0;
+
+    background-color: #333333;
+}
+
+.sidebar nav img{ 
+    width: 100%;
+    display: block;
+}
+
+.sidebar nav img[alt="profile"]{
+    width: 250px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.sidebar ul li img{
+    width: 20px;
+    height: 20px;
+    margin-right: 16px;
+    object-fit: contain;
+}
+
+.sidebar ul li a{
+    text-decoration: none;
+    color: white;
+
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li{
+    font-weight: 500;
+    cursor: pointer;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li:hover{ background-color: #242424; }
+
+.bottomText{
+    margin-top: auto;
+    text-align: right;
+
+    font-weight: 300;
+    font-size: 12pt;
+
+    color: rgba(255, 255, 255, 0.7);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    padding: 8px;
+}
+
+.tiny{ font-size: 8pt;}
