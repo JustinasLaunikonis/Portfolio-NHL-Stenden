@@ -12,7 +12,7 @@ h1, h2, h3, h4, body{
 }
 
 body{
-    background-color: #222222;
+    background-color: #333333;
     color: #dddddd;
 
     font-weight: 400;
@@ -22,19 +22,17 @@ body{
     
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 /* ========== Header ========== */
 
 header{
-    background-color: #333333;
     color: white;
 
     top: 0;
     height: 48px;
     width: 100%;
-    /*transition: padding-top 0.5s, padding-bottom 0.5s;*/
 
     display: flex;
     flex-direction: column;
@@ -90,12 +88,18 @@ header{
 
     display: flex;
     align-items: center;
+    
+    padding: 15px 0 15px 20px;
+}
+
+.sidebar ul li a.selected{
+    color: #5EA8DE;
+    box-shadow: inset 4px 0px 0;
 }
 
 .sidebar ul li{
     font-weight: 500;
     cursor: pointer;
-    padding: 15px;
     transition: background-color 0.3s ease;
 }
 
@@ -115,3 +119,123 @@ header{
 }
 
 .tiny{ font-size: 8pt;}
+
+
+/* ========== Herobox ========== */
+
+.herobox{
+    background-color: #222222;
+    padding: 20px 0 0 275px;
+    height: 165vh;
+    width: 100%;
+
+    color: white;
+}
+
+.herobox h2{ margin-bottom: 25px; }
+
+.herobox a{
+    color: white;
+    text-decoration: none;
+}
+
+/* ---------- Reach Me ---------- */
+
+table{
+    border-collapse: collapse;
+    margin-bottom: 35px;
+}
+
+td {
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+
+    height: 48px;
+}
+
+button, td button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-family: 'roboto-regular', 'Segoe UI', 'Calibri', 'Verdana', 'Geneva', 'DejaVu Sans', sans-serif;
+    font-size: 10pt;
+    
+    border: 1px solid #347EB3;
+    background-color: #347EB3;
+
+    min-width: 72px;
+    cursor: pointer;
+
+    min-height: 30px;
+    padding: 4px;
+    margin-top: 16px;
+
+    border-radius: 4px;
+
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button:hover, td button:hover{
+    background-color: #235477;
+    border: 1px solid #235477;
+}
+
+/* ---------- Updates ---------- */
+
+td button{ 
+    font-size: larger;
+    font-family: 'roboto-light', 'Segoe UI Light', 'Segoe UI', 'Calibri', 'Verdana', 'Geneva', 'DejaVu Sans', sans-serif;
+    
+    margin-top: 0;
+    margin-left: 16px;
+}
+
+button.documentation {
+    position: relative;
+    overflow: hidden;
+}
+
+button.documentation span{
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+button.documentation img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+
+    left: 50%;
+    transform: translateX(-50%) translateY(200%);
+    transition: transform 0.3s ease;
+}
+
+button.documentation:hover span{ transform: translateY(-200%); }
+button.documentation:hover img{ transform: translateX(-50%) translateY(0); }
+
+/* ---------- Personal Info ---------- */
+
+.personalInfoTable{
+    border-collapse: unset;
+    width: 100%;
+}
+
+.personalInfoTable td{
+    padding: 8px;
+    height: auto;
+}
+
+.personalInfoTable tr:nth-child(even){
+    background-color: #393939;
+    font-weight: 500;
+}
+
+.personalInfoTable td:first-child{ width: 200px; }
