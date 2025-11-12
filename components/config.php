@@ -1,8 +1,8 @@
 <?php
 // version info
-$version = "0.0.2";
+$version = "0.0.3";
 $versionName = "Luna";
-$buildDate = "12/11/2025 01:55";
+$buildDate = "12/11/2025 12:57";
 
 $versionLink = "https://github.com/JustinasLaunikonis/Portfolio-NHL-Stenden/commit/0d46ab50db34279075b120ab7858e2e6f217d44c";
 
@@ -33,7 +33,7 @@ $navigationLogo  = [
     "../assets/sidebar/status.png",
     "../assets/sidebar/console.png",
     "../assets/sidebar/schedule.png",
-    "../assets/sidebar/skills_and_tools.png",
+    "../assets/sidebar/skills.png",
     "../assets/sidebar/file_manager.png",
     "../assets/sidebar/statistics.png",
     "../assets/sidebar/side_projects.png",

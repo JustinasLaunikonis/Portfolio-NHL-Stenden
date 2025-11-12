@@ -1,5 +1,7 @@
 <?php
     require_once '../components/layout.php';
+
+    $faviconPath = "../assets/sidebar/" . pathinfo($currentPage, PATHINFO_FILENAME) . ".png";
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="../assets/sidebar/support.png">
+    <link rel="icon" type="image/x-icon" href="<?php echo $faviconPath; ?>">
 
     <link rel="stylesheet" href="../style.css">
 </head>
@@ -18,7 +20,7 @@
     renderSidebar($navigation, $navigationLink, $navigationLogo, $currentPage, $versionName, $version, $buildDate);
     ?>
 
-    <div class="herobox">
+    <div class="herobox" style="height: 165vh;">
         <h2>Reach Me</h2>
 
 
@@ -50,7 +52,7 @@
         <table class="personalInfoTable">
             <tr>
                 <td>Deployment Zone</td>
-                <td>Lithuanian</td>
+                <td>Lithuania</td>
             </tr>
             <tr>
                 <td>Platform</td>
