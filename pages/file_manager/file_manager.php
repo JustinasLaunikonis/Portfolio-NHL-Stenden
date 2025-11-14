@@ -1,7 +1,7 @@
 <?php
-    require_once '../components/layout.php';
+    require_once '../../components/layout.php';
 
-    $faviconPath = "../assets/sidebar/" . pathinfo($currentPage, PATHINFO_FILENAME) . ".png";
+    $faviconPath = $relativePrefix . "assets/sidebar/file_manager.png";
 ?>
 
 <!DOCTYPE html>
@@ -9,16 +9,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio - <?php echo $pageTitle; ?></title>
     <link rel="icon" type="image/x-icon" href="<?php echo $faviconPath; ?>">
 
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../file_manager.css">
+    <link rel="stylesheet" href="<?php echo $relativePrefix; ?>style.css">
+    <link rel="stylesheet" href="<?php echo $relativePrefix; ?>file_manager.css">
 </head>
 <body>
     <?php
     renderHeader($pageTitle);
-    renderSidebar($navigation, $navigationLink, $navigationLogo, $currentPage, $versionName, $version, $buildDate);
+    renderSidebar($navigation, $navigationLink, $navigationLogo, $currentPage, $versionName, $version, $buildDate, $versionLink, $relativePrefix);
     ?>
 
     <div class="herobox" style="height: auto;">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>LocalBackups</p>
@@ -39,7 +39,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/trash_bin.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/trash_bin.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>Trashed Files</p>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>config</p>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>crash-reports</p>
@@ -75,7 +75,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>debug</p>
@@ -87,7 +87,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>libraries</p>
@@ -99,7 +99,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder_extra.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder_extra.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>logs</p>
@@ -111,7 +111,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder_extra.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder_extra.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>plugins</p>
@@ -123,31 +123,21 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
-            <div class="fileEntryInfo">
-                <div class="fileEntryTitle">
-                    <p>NHL-Stenden_Period_1</p>
+            <a href="NHL-Stenden_Period_1/NHL-Stenden_Period_1.php" class="fileEntryLink">
+                <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+                <div class="fileEntryInfo">
+                    <div class="fileEntryTitle">
+                        <p>NHL-Stenden_Period_1</p>
+                    </div>
+                    <div class="fileEntrySubtitle">
+                        <p>Directory</p>
+                    </div>
                 </div>
-                <div class="fileEntrySubtitle">
-                    <p>Directory</p>
-                </div>
-            </div>
+            </a>
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
-            <div class="fileEntryInfo">
-                <div class="fileEntryTitle">
-                    <p>NHL-Stenden_Period_2</p>
-                </div>
-                <div class="fileEntrySubtitle">
-                    <p>Directory</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>versions</p>
@@ -159,7 +149,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>PortfolioBackupManifest.json</p>
@@ -171,7 +161,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>banned-individuals.json</p>
@@ -183,7 +173,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>CV.yml</p>
@@ -195,7 +185,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/folder.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>commands</p>
@@ -207,7 +197,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>eula.txt</p>
@@ -219,7 +209,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>help.yml</p>
@@ -231,7 +221,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_extra.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>permissions.yml</p>
@@ -243,7 +233,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>usercache.json</p>
@@ -255,7 +245,7 @@
         </div>
 
         <div class="fileManagerEntry">
-            <img src="../assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
+            <img src="<?php echo $relativePrefix; ?>assets/file_manager/files_text.png" alt="folder" class="fileEntryIcon">
             <div class="fileEntryInfo">
                 <div class="fileEntryTitle">
                     <p>whitelist.json</p>

@@ -4,7 +4,7 @@
     max-width: calc(100vw - 265px);
 }
 
-.pathSegment {
+.pathSegment, .pathSegment2 {
     display: inline-block;
     
     background-color: #235477;
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
 
-.pathSegment::after {
+.pathSegment::after, .pathSegment2::after {
     width: 0;
     height: 0;
 
@@ -36,8 +36,14 @@
     left: 10px;
 }
 
+.fmPathSegment:nth-child(even)::after { border-left-color: #326386;}
+.fmPathSegment:nth-child(even) { background-color: #326386; }
+
 .pathSegment:hover { background-color: #5EA8DE; }
 .pathSegment:hover::after { border-left-color: #5EA8DE; }
+
+.pathSegment2 { background-color: #386e94; }
+.pathSegment2::after { border-left-color: #386e94; }
 
 .fileManagerEntry {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -72,3 +78,14 @@
     font-size: 10pt;
     color: #bbbbbb;
 }
+
+.fileEntryLink {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.fileManagerEntry a.fileEntryLink:hover { text-decoration: none; }

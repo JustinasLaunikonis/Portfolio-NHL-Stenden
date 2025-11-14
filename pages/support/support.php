@@ -1,7 +1,7 @@
 <?php
-    require_once '../components/layout.php';
+    require_once '../../components/layout.php';
 
-    $faviconPath = "../assets/sidebar/" . pathinfo($currentPage, PATHINFO_FILENAME) . ".png";
+    $faviconPath = $relativePrefix . "assets/sidebar/support.png";
 ?>
 
 <!DOCTYPE html>
@@ -9,43 +9,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio - <?php echo $pageTitle; ?></title>
     <link rel="icon" type="image/x-icon" href="<?php echo $faviconPath; ?>">
 
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="<?php echo $relativePrefix; ?>style.css">
 </head>
 <body>
     <?php
     renderHeader($pageTitle);
-    renderSidebar($navigation, $navigationLink, $navigationLogo, $currentPage, $versionName, $version, $buildDate);
+    renderSidebar($navigation, $navigationLink, $navigationLogo, $currentPage, $versionName, $version, $buildDate, $versionLink, $relativePrefix);
     ?>
 
-    <div class="herobox" style="height: 165vh;">
+    <div class="herobox" style="height: auto; padding-bottom: 35px;">
         <h2>Reach Me</h2>
-
 
         <table style="width: auto; max-width: 100%;">
             <tr>
                 <td>Got a quick question?</td>
-                <td><button><a href="https://www.instagram.com/justinas.la/" target="_blank">Contact me on Instagram</a></button></td>
+                <td>
+                    <button class="documentation">
+                        <span>Contact me on Instagram</span>
+                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
+                        <a href="https://www.instagram.com/justinas.la/" target="_blank" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></a>
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>Interested in my work or how I do stuff?</td>
-                <td><button><a href="https://github.com/JustinasLaunikonis" target="_blank">Check out my GitHub</a></button></td>
+                <td>
+                    <button class="documentation">
+                        <span>Check out my GitHub</span>
+                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
+                        <a href="https://github.com/JustinasLaunikonis" target="_blank" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></a>
+                    </button>
+                </td>
             </tr>
             <tr>
                 <td>Still need assistance?</td>
-                <td><button>Open a support ticket on my Discord</button></td>
+                <td>
+                    <button class="documentation">
+                        <span>Open a support ticket on my Discord</span>
+                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
+                    </button>
+                </td>
             </tr>
         </table>
 
         <h2>Updates</h2>
         <p>Currently running version <?php echo $version; ?> - <?php echo $buildDate; ?></p>
         
-        <button class="documentation">
+        <button class="documentation" style="position: relative;">
             <span>View Release Notes</span>
-            <img src="../assets/sidebar/file_manager.png" alt="icon">
-            <a href="<?php echo $versionLink; ?>" target="_blank" style="position: absolute; width: 100%; height: 100%;"></a>
+            <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
+            <a href="<?php echo $versionLink; ?>" target="_blank" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></a>
         </button>
 
         <h2 style="margin-top: 35px;">Personal Info</h2>

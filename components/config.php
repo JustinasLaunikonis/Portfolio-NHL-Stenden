@@ -1,8 +1,8 @@
 <?php
 // version info
-$version = "0.0.3";
+$version = "0.0.4";
 $versionName = "Luna";
-$buildDate = "12/11/2025 12:57";
+$buildDate = "14/11/2025 12:21";
 
 $versionLink = "https://github.com/JustinasLaunikonis/Portfolio-NHL-Stenden/commit/0d46ab50db34279075b120ab7858e2e6f217d44c";
 
@@ -19,24 +19,24 @@ $navigation = [
 ];
 
 $navigationLink = [
-    "../pages/status.php",
-    "../pages/console.php",
-    "../pages/schedule.php",
-    "../pages/skills.php",
-    "../pages/file_manager.php",
-    "../pages/statistics.php",
-    "../pages/side_projects.php",
-    "../pages/support.php"
+    "status/status.php",
+    "console/console.php",
+    "schedule/schedule.php",
+    "skills/skills.php",
+    "file_manager/file_manager.php",
+    "statistics/statistics.php",
+    "side_projects/side_projects.php",
+    "support/support.php"
 ];
 
 $navigationLogo  = [
-    "../assets/sidebar/status.png",
-    "../assets/sidebar/console.png",
-    "../assets/sidebar/schedule.png",
-    "../assets/sidebar/skills.png",
-    "../assets/sidebar/file_manager.png",
-    "../assets/sidebar/statistics.png",
-    "../assets/sidebar/side_projects.png",
-    "../assets/sidebar/support.png"
+    "status.png",
+    "console.png",
+    "schedule.png",
+    "skills.png",
+    "file_manager.png",
+    "statistics.png",
+    "side_projects.png",
+    "support.png"
 ];
 ?>
