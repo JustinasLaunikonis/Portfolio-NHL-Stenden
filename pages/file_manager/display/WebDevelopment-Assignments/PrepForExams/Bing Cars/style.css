@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+    
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #000000;
+    font-size: 1em;
+    text-decoration: none;
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar
+{
+    width: 1024px;
+    height: 115px;
+    background-color: rgb(90, 94, 105);
+    position: relative;
+}
+
+
+.navbar-logo
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar-links ul{
+    display: flex;
+    list-style: none;
+    padding-right: 20px;
+}
+
+.navbar-links ul a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.navbar-links ul a:hover{
+    color: black;
+    background-color: white;
+}
+
+img[alt="header-car"]{ clip-path: inset(0 0 80px 0);}
+
+.lower-header { position: relative; }
+
+.lower-header-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 90px;
+
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    flex: 1;
+}
+
+
+footer{
+    background-color: #bdc3c7;
+    color: white;
+    line-height: 200%;
+    
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+    
+    margin: auto;
+}
+
+.footer-left,
+.footer-right{ padding: 30px; }
+
+.footer-right ul{
+    list-style: none;
+    text-align: right;
+}

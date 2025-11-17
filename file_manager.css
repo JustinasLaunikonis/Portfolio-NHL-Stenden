@@ -10,7 +10,6 @@
     background-color: #235477;
 
     padding-left: 20px;
-    margin-left: -4px;
     margin-top: 0;
 
     font-size: 12pt;
@@ -28,7 +27,6 @@
     border-left: 10px solid #235477;
     
     content: ' ';
-    display: inline-block;
 
     float: right;
     position: relative;
@@ -45,14 +43,16 @@
 .pathSegment2 { background-color: #386e94; }
 .pathSegment2::after { border-left-color: #386e94; }
 
+.pathSegment2:hover { background-color: #5EA8DE; }
+.pathSegment2:hover::after { border-left-color: #5EA8DE; }
+
+
 .fileManagerEntry {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding: 4px;
     padding-left: 8px;
     cursor: pointer;
     width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
     box-sizing: border-box;
     position: relative;
     
@@ -63,11 +63,13 @@
 
 .fileManagerEntry:hover {background-color: #335169; }
 
-.fileEntryIcon {
+.fileEntryIcon, .fileEntryOptions, .fileInfoIcon {
     width: 24px;
     height: 24px;
     object-fit: contain;
 }
+
+.fileEntryOptions { margin-left: auto; }
 
 .fileEntryInfo {
     display: flex;
@@ -85,7 +87,129 @@
     gap: 16px;
     text-decoration: none;
     color: inherit;
-    width: 100%;
+    flex: 1;
 }
 
 .fileManagerEntry a.fileEntryLink:hover { text-decoration: none; }
+
+.fileManagerContainer {
+    display: flex;
+    gap: 0;
+    height: calc(100vh - 80px);
+}
+
+.fileManagerList {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.fileManagerList::-webkit-scrollbar { width: 3px; }
+.fileManagerList::-webkit-scrollbar-track { background: #1e1e1e; }
+
+.fileManagerList::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 6px;
+    min-height: 50px;
+}
+
+.fileInfoPanel {
+    width: 300px;
+    height: 50vh;
+    top: 0;
+
+    position: sticky;
+}
+
+.fileInfoContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 0;
+}
+
+.fileInfoPlaceholder {
+    color: #888;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.fileInfoDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+    width: 100%;
+}
+
+.fileInfoRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 8px;
+    background-color: #1e1e1e;
+}
+
+.fileInfoRow:nth-child(odd) { background-color: #2d2d2d; }
+.fileInfoRow:first-child { border-top: 1px solid #1e1e1e; }
+
+.fileInfoLabel {
+    color: #ffffff;
+    font-size: 11pt;
+    font-weight: normal;
+}
+
+.fileInfoValue, .fileInfoPath {
+    font-size: 11pt;
+    text-align: right;
+    word-break: break-word;
+    color: #ffffff;
+    max-width: 60%;
+}
+
+.fileInfoPath{ 
+    font-size: 8pt;
+    overflow-wrap: break-word;
+}
+
+.fileManagerEntry.selected { background-color: #335169; }
+
+.fileInfoHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 8px;
+    gap: 8px;
+}
+
+.contextMenu {
+    position: fixed;
+    background-color: #2d2d2d;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 8px 0;
+    min-width: 200px;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.contextMenu.active { display: block; }
+
+.contextMenuItem {
+    padding: 10px 16px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 11pt;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contextMenuItem:hover { background-color: #335169; }
+
+.contextMenuItem img {
+    width: 16px;
+    height: 16px;
+}

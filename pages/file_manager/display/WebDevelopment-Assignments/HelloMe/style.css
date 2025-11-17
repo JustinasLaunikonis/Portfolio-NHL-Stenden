@@ -1,0 +1,128 @@
+.portfolio-card img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 18px;
+	box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+	display: block;
+}
+
+.week-dropdown {
+	width: 100%;
+	margin-bottom: 12px;
+	border-radius: 8px;
+	background: #f7fafd;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+	border: none;
+	padding: 0;
+}
+
+.week-dropdown[open] {
+	background: #f0f4f8;
+}
+
+.week-dropdown summary {
+	font-weight: 600;
+	font-size: 18px;
+	color: #0078d7;
+	padding: 10px 16px;
+	cursor: pointer;
+	outline: none;
+	border-radius: 8px;
+	background: transparent;
+	transition: background 0.2s;
+	list-style: none;
+}
+
+.week-dropdown summary:hover, .week-dropdown summary:focus {
+	background: #e6f0fa;
+}
+
+.week-dropdown ul {
+	padding: 0 18px 12px 18px;
+	margin: 0;
+}
+
+.week-dropdown li {
+	margin: 10px 0;
+}
+
+body {
+	font-family: 'Segoe UI', Arial, sans-serif;
+	background: #f4f7fa;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	text-align: center;
+	margin-top: 32px;
+	color: #000000;
+}
+
+.portfolio-container {
+	display: flex; /* Use flexbox for layout, lets options to be laid out in a row */
+	justify-content: center;
+
+	gap: 32px; /* Space between cards */
+
+	margin: 40px auto;
+	max-width: 1100px;
+	flex-wrap: wrap; /* Allow wrapping to new lines on smaller screens */
+}
+
+.portfolio-card {
+	background: #ffffff;
+	border-radius: 16px; /* Rounded corners */
+
+	box-shadow: 0 4px 24px rgba(0,0,0,0.08); /* Shadow for 3D feel */
+
+	padding: 32px 24px 24px 24px;
+	width: 320px;
+	display: flex;
+	flex-direction: column; /* Stack options vertically */
+	align-items: center;
+    
+	transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover effect */
+}
+
+.portfolio-card:hover {
+	transform: translateY(-8px) scale(1.03);
+	box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.portfolio-card h2 {
+	margin-top: 0;
+	color: #0078d7;
+	font-size: 1.4em;
+	margin-bottom: 18px;
+}
+
+.portfolio-card ul {
+	list-style: none; /* Remove bullets */
+	padding: 0;
+	margin: 0 0 12px 0;
+	width: 100%;
+}
+
+.portfolio-card li {
+	margin: 12px 0;
+	text-align: center;
+}
+
+.portfolio-card a {
+	display: inline-block;
+	padding: 8px 18px;
+	background: #0078d7;
+	color: #ffffff;
+	border-radius: 6px;
+
+	text-decoration: none; /* Remove underline */
+	font-weight: 500;
+
+	transition: background 0.2s; /* Smooth hover effect */
+}
+
+.portfolio-card a:hover {
+	background: #005fa3; /* Darker blue on hover */
+}

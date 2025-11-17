@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f3f3f3;
+    
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar{ position: relative }
+
+.navbar-links
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.navbar-links ul{
+    list-style: none;
+    display: flex;
+    font-weight: bold;
+}
+
+.navbar-links ul a{
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar-links ul a:hover{
+    background-color: white;
+    color: black;
+}
+
+.header-image-container {
+    height: 150px;
+    overflow: hidden;
+}
+
+header img{ display: block; }
+
+.searchbar{ position: relative; }
+
+.searchbar-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar-type textarea{
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 15px;
+
+    line-height: 20px;
+    font-family: inherit;
+}
+
+
+
+main{
+    width: 1024px;
+    margin: auto;
+    color: black;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+h1{
+    color: #009a44;
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+}
+
+.underline
+{
+    border-bottom: 3px solid #009a44;
+
+    margin-bottom: 20px;
+}
+
+
+
+.pizza-container{
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-template-rows: 1fr 1fr;
+
+    column-gap: 50px;
+    row-gap: 20px;
+
+    height: 700px;
+    margin-bottom: 100px;
+    justify-content: space-between;
+}
+
+.pizza-container div{
+    border:#009a44 solid;
+    padding: 10px;
+}
+
+.flavour_button{
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #009a44;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+footer{
+    background-color: #009a44;
+    color: white;
+    line-height: 200%;
+    
+    display: flex;
+    justify-content: space-between;
+    width: 1024px;
+    
+    margin: auto;
+}
+
+.footer-right,
+.footer-left{ padding: 30px; }
+
+.footer-right ul{
+    list-style: none;
+    text-align: right;
+}

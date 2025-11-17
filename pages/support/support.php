@@ -27,30 +27,31 @@
             <tr>
                 <td>Got a quick question?</td>
                 <td>
-                    <button class="documentation">
-                        <span>Contact me on Instagram</span>
-                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
-                        <a href="https://www.instagram.com/justinas.la/" target="_blank" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></a>
-                    </button>
+                    <a href="https://www.instagram.com/justinas.la/" target="_blank" style="text-decoration: none;">
+                        <button>
+                            <p>Contact me on Instagram</p>
+                        </button>
+                    </a>
                 </td>
             </tr>
             <tr>
                 <td>Interested in my work or how I do stuff?</td>
                 <td>
-                    <button class="documentation">
-                        <span>Check out my GitHub</span>
-                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
-                        <a href="https://github.com/JustinasLaunikonis" target="_blank" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;"></a>
-                    </button>
+                    <a href="https://github.com/JustinasLaunikonis" target="_blank" style="text-decoration: none;">
+                        <button>
+                            <p>Check out my GitHub</p>
+                        </button>
+                    </a>
                 </td>
             </tr>
             <tr>
                 <td>Still need assistance?</td>
                 <td>
-                    <button class="documentation">
-                        <span>Open a support ticket on my Discord</span>
-                        <img src="<?php echo $relativePrefix; ?>assets/sidebar/file_manager.png" alt="icon">
-                    </button>
+                    <a href="#">
+                        <button>
+                            <p>Open a support ticket on my Discord</p>
+                        </button>
+                    </a>   
                 </td>
             </tr>
         </table>
