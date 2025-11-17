@@ -1,8 +1,8 @@
 <?php
 // version info
-$version = "0.0.4";
+$version = "0.0.5-2";
 $versionName = "Luna";
-$buildDate = "17/11/2025 12:38";
+$buildDate = "17/11/2025 12:42";
 
 $versionLink = "https://github.com/JustinasLaunikonis/Portfolio-NHL-Stenden/commit/0d46ab50db34279075b120ab7858e2e6f217d44c";
 
