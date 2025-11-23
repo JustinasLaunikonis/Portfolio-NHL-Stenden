@@ -213,3 +213,35 @@
     width: 16px;
     height: 16px;
 }
+
+.uploadOverlay {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.2);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.uploadOverlay.active { display: flex; }
+
+.uploadOverlayContent {
+    background-color: #555555;
+    padding: 40px 60px;
+    border-radius: 10px;
+}
+
+.uploadOverlayContent p {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.fileManagerContainer { position: relative; }

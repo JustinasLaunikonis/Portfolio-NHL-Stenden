@@ -102,8 +102,10 @@
     ?>
 
     <div class="herobox">
-        <a href="file_manager.php" style="text-decoration: none; color: inherit;"><div class="pathSegment">/</div></a><?php
-        // what the fuck is happening here
+        <a href="file_manager.php" style="text-decoration: none; color: inherit;">
+            <div class="pathSegment">/</div><!--
+    --></a><!--
+    --><?php
 
         $buildPath = '';
         $isFirst = true;
@@ -119,7 +121,13 @@
         }
         ?>
 
-        <div class="fileManagerContainer">
+        <div class="uploadOverlay" id="uploadOverlay">
+            <div class="uploadOverlayContent">
+                <p>Drop to upload here</p>
+            </div>
+        </div>
+
+        <div class="fileManagerContainer" id="fileManagerContainer">
             <div class="fileManagerList">
                 <?php foreach ($items as $index => $item): ?>
                 <div class="fileManagerEntry" data-index="<?php echo $index; ?>" data-type="<?php echo $item['type']; ?>">
@@ -181,7 +189,10 @@
     <script>
         const items = <?php echo json_encode($items); ?>;
         const relativePrefix = <?php echo json_encode($relativePrefix); ?>;
+        const currentPath = <?php echo json_encode($requestedPath); ?>;
         const fileInfoPanel = document.getElementById('fileInfoPanel');
+        const fileManagerContainer = document.getElementById('fileManagerContainer');
+        const uploadOverlay = document.getElementById('uploadOverlay');
         let lastSelectedIndex = null;
         let currentContextMenu = null;
         
@@ -193,6 +204,9 @@
             </div>
             <div class="contextMenuItem" data-action="github">
                 <span>Open with GitHub</span>
+            </div>
+            <div class="contextMenuItem" data-action="delete">
+                <span>Delete</span>
             </div>
         `;
         document.body.appendChild(contextMenu);
@@ -247,6 +261,101 @@
                 </div>
             `;
         }
+
+        // ---- drag and drop upload ----
+        let dragCounter = 0;
+        
+        function showUploadOverlay() {
+            uploadOverlay.classList.add('active');
+        }
+        
+        function hideUploadOverlay() {
+            uploadOverlay.classList.remove('active');
+        }
+        
+        fileManagerContainer.addEventListener('dragenter', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter++;
+            showUploadOverlay();
+        });
+        
+        fileManagerContainer.addEventListener('dragleave', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter--;
+            if (dragCounter === 0) {
+                hideUploadOverlay();
+            }
+        });
+        
+        fileManagerContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+        
+        fileManagerContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            dragCounter = 0;
+            hideUploadOverlay();
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                uploadFiles(files);
+            }
+        });
+        
+        function uploadFiles(files) {
+            Array.from(files).forEach(file => {
+                const fileName = file.name;
+                const fileNameWithoutExt = fileName.substring(0, fileName.lastIndexOf('.')) || fileName;
+                const fileExtension = fileName.split('.').pop().toLowerCase();
+                const allowedExtensions = ['png', 'jpeg', 'jpg', 'gif'];
+                
+                if (fileNameWithoutExt.length > 50) {
+                    alert(`"${fileName}": File name must not exceed 50 characters`);
+                    return;
+                }
+                
+                if (!/[A-Z]/.test(fileNameWithoutExt)) {
+                    alert(`"${fileName}": File name must contain at least one uppercase letter`);
+                    return;
+                }
+                
+                if (!allowedExtensions.includes(fileExtension)) {
+                    alert(`"${fileName}": Only .png, .jpeg, .jpg, and .gif files are allowed`);
+                    return;
+                }
+                
+                if (file.size > 3145728) {
+                    alert(`"${fileName}": File size must not exceed 3MB`);
+                    return;
+                }
+                
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('path', currentPath);
+                
+                fetch('upload_handler.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(`"${fileName}" uploaded successfully!`);
+                        window.location.reload();
+                    } else {
+                        alert(`Upload failed: ${data.message}`);
+                    }
+                })
+                .catch(error => {
+                    console.error('Upload error:', error);
+                    alert('An error occurred during upload');
+                });
+            });
+        }
         
         document.querySelectorAll('.fileEntryOptions').forEach(optionsBtn => {
             optionsBtn.addEventListener('click', (e) => {
@@ -287,11 +396,39 @@
                 
                 const githubUrl = `https://github.com/JustinasLaunikonis/${repoName}/tree/main/${encodedPath}`;
                 window.open(githubUrl, '_blank');
+            } else if (action === 'delete') {
+                if (confirm(`Are you sure you want to delete "${currentContextMenu.name}"? This action cannot be undone.`)) {
+                    deleteFile(currentContextMenu.path, currentContextMenu.name);
+                }
             }
             
             contextMenu.classList.remove('active');
         });
 
+        function deleteFile(filePath, fileName) {
+            const formData = new FormData();
+            formData.append('path', filePath);
+            
+            fetch('delete_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(`"${fileName}" deleted successfully!`);
+                    //sessionStorage.removeItem('lastSelectedFile');
+                    window.location.reload();
+                } else {
+                    alert(`Delete failed: ${data.message}`);
+                }
+            })
+            .catch(error => {
+                console.error('Delete error:', error);
+                alert('An error occurred during deletion');
+            });
+        }
+        
         document.addEventListener('click', (e) => {
             if (!contextMenu.contains(e.target) && !e.target.closest('.fileEntryOptions')) {
                 contextMenu.classList.remove('active');
